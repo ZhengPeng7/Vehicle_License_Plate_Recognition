@@ -6,13 +6,8 @@ import cv2
 import extract_figures
 from collections import OrderedDict
 import os
-from matplotlib import rcParams
 from matplotlib.font_manager import FontProperties
 import sys
-
-
-myfont = FontProperties(fname='/usr/share/fonts/truetype/simhei.ttf', size=20)
-rcParams['axes.unicode_minus'] = False
 
 
 def predict_plate(plates):
@@ -161,8 +156,9 @@ def predict_plate(plates):
 def main():
 
     # matplotlib 显示中文
-    plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
     plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+    myfont = FontProperties(fname='/usr/share/fonts/truetype/simhei.ttf',
+                            size=20)
 
     image = sys.argv[1]
     plate = extract_figures.extract_figures(image)
@@ -170,7 +166,7 @@ def main():
     pred_values.insert(2, '·')
     print("The License Plate is: {}".format(pred_values))
     plt.imshow(cv2.cvtColor(cv2.imread(image), cv2.COLOR_BGR2RGB))
-    plt.title(u''.join(pred_values), fontproperties=myfont)
+    plt.title(''.join(pred_values), fontproperties=myfont)
     plt.show()
 
 
