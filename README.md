@@ -1,3 +1,7 @@
+> The method of my project is basic but out-of-date, I highly recommend [this project](https://github.com/zeusees/HyperLPR), hope you'll enjoy it ::joy::.
+
+
+
 # Vehicle_Lincense_Plate_Recognition
 
 > Data Distribution:
